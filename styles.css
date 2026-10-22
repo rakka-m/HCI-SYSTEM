@@ -220,6 +220,40 @@ textarea{width:100%;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;padding:
 .sites a:not(.on):hover{background:rgba(255,255,255,.12)}
 @media (max-width:560px){.sites a{padding:6px 7px;font-size:11px}}
 
+/* ---------- Phone header ----------
+   The header row (logo + title + site switcher + sign-out + theme) is wider
+   than a phone screen, so on small screens it becomes two tidy rows:
+     row 1  title ............ theme toggle
+     row 2  site switcher .... sign out
+   Nothing is allowed to push past the right edge. */
+@media (max-width:640px){
+  .top{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:center;
+    gap:8px 10px;
+    padding:10px 14px 0;
+  }
+  .brand-group{grid-column:1;grid-row:1;min-width:0}
+  .top-actions{display:contents}
+  #themeToggle{grid-column:2;grid-row:1;justify-self:end;flex:none}
+  .sites{grid-column:1;grid-row:2;min-width:0;width:100%}
+  .sites a{flex:1 1 0;min-width:0;text-align:center;overflow:hidden;text-overflow:ellipsis}
+  #rl{
+    grid-column:2;grid-row:2;justify-self:end;
+    max-width:42vw;min-width:0;
+    display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  h1{font-size:20px}
+  nav{gap:18px;padding:6px 14px 0}
+}
+@media (max-width:380px){
+  h1{font-size:17px}
+  .brand-logo{height:30px}
+  #themeToggle,#rl{padding:6px 9px!important;font-size:12px}
+  .sites a{font-size:11px;padding:6px 4px}
+}
+
 /* ---------- POS (cashier terminal) ---------- */
 .posbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);border:1px solid var(--bd);border-left:6px solid var(--ac);border-radius:4px;padding:10px 12px;margin:12px 0}
 .posbar b{display:block;font-size:24px;font-weight:800;line-height:1.1;font-family:"Archivo","Arial Narrow",sans-serif}
