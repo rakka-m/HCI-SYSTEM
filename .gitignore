@@ -1,0 +1,16 @@
+# Local editor settings (contains an absolute C:\ path)
+.vscode/
+
+# Screenshots and scratch files
+Screenshot*.png
+*.tmp
+*.log
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Never commit API keys or local notes
+MYAPI.txt
+.env
